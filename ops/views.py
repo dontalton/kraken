@@ -1,5 +1,6 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
+from django.conf import settings
 from cephclient import wrapper
 
 ceph = wrapper.CephWrapper(endpoint=settings.CEPH_BASE_URL)
