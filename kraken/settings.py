@@ -89,6 +89,7 @@ STATICFILES_DIRS = (
 # Template dir
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'status/templates'),
+    os.path.join(BASE_DIR, 'ops/templates'),
 )
 
 #Configuration for django-rest-framework
