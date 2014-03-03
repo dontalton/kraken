@@ -10,15 +10,20 @@ from api import views
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    # manage users and permissions
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/login/$', login),
     url(r'^accounts/logout/$', logout),
+    # root site
     url(r'^$', 'status.views.home', name='home'),
-    url(r'^ops/$', 'status.views.ops', name='ops'),
+    # full osd details
     url(r'^osd/(\d+)/$', 'status.views.osd_details', name='osd_details'),
+    # kraken API endpoints
     url(r'^api/clusters/health/$', views.health, name="cluster-health"),
     url(r'^api/clusters/status/$', views.status, name="cluster-status"),
     url(r'^api/clusters/overview/$', views.overview, name="cluster-status"),
     url(r'^api/clusters/$', views.clusters, name="clusters"),
     url(r'^api/$', views.api, name="api"),
+    # ops endpoints
+    url(r'^ops/$', 'ops.views.ops', name='ops'),
 )
